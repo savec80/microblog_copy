@@ -16,12 +16,12 @@ function set_openid(openid, pr)
 }
 </script>
 <h1>Sign in</h1>
-  <form action="" method="post" name="login">
+<form action="" method="post" name="login">
     {{ form.hidden_tag() }}
     <p>
         Please enter your OpenID:<br>
-        {{ form.openid(size=80) }}<br>
-        {% for error in form.openid.error %}
+        {{ form.openid(size=80) }}
+        {% for error in form.openid.errors %}
           <span style="color: red;">[{{ error }}]</span>
         {% endfor %}<br>
         |{% for pr in providers %}
@@ -29,6 +29,6 @@ function set_openid(openid, pr)
         {% endfor %}
     </p>
     <p>{{ form.remember_me }} Remember me</p>
-    <p><inout type="submit" value="Sign in"></p>
+    <p><input type="submit" value="Sign in"></p>
 </form>
 {% endblock %}
